@@ -1,0 +1,409 @@
+> use db30_01
+switched to db db30_01
+> load ("C:/staff.js")
+true
+> db.nettuts.find({gender:'f'}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dce"),
+        "first" : "jamie lee",
+        "last" : "curtis",
+        "dob" : "22/11/1958",
+        "gender" : "f",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dd0"),
+        "first" : "judi",
+        "last" : "dench",
+        "dob" : "09/12/1934",
+        "gender" : "f",
+        "hair_colour" : "white",
+        "occupation" : "actress",
+        "nationality" : "english"
+}
+> db.nettuts.find({gender:'m', nationality:'english'}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english"
+> db.nettuts.find({gender:'m', $or:[{nationality:'english'},{nationality:'american'}]}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcb"),
+        "first" : "james",
+        "last" : "caan",
+        "dob" : "26/03/1940",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcc"),
+        "first" : "arnold",
+        "last" : "schwarzenegger",
+        "dob" : "03/06/1925",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcd"),
+        "first" : "tony",
+        "last" : "curtis",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english"
+}
+> db.nettuts.find({gender:'m', $or:[{nationality:'english'},{nationality:'american'}]}).sort({nationality:1}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcb"),
+        "first" : "james",
+        "last" : "caan",
+        "dob" : "26/03/1940",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcc"),
+        "first" : "arnold",
+        "last" : "schwarzenegger",
+        "dob" : "03/06/1925",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcd"),
+        "first" : "tony",
+        "last" : "curtis",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english"
+}
+> db.nettuts.find({gender:'m', $or:[{nationality:'english'},{nationality:'american'}]}).sort({nationality:-1,first:1}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcc"),
+        "first" : "arnold",
+        "last" : "schwarzenegger",
+        "dob" : "03/06/1925",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcb"),
+        "first" : "james",
+        "last" : "caan",
+        "dob" : "26/03/1940",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcd"),
+        "first" : "tony",
+        "last" : "curtis",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "american"
+}
+> db.nettuts.find({gender:'m', $or:[{nationality:'english'},{nationality:'american'}]}).sort({nationality:-1,first:1}).limit(2).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcc"),
+        "first" : "arnold",
+        "last" : "schwarzenegger",
+        "dob" : "03/06/1925",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+> db.nettuts.find({gender:'m', $or:[{nationality:'english'},{nationality:'american'}]}).sort({nationality:-1,first:1}).limit(2).skip(2).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcb"),
+        "first" : "james",
+        "last" : "caan",
+        "dob" : "26/03/1940",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcd"),
+        "first" : "tony",
+        "last" : "curtis",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "american"
+}
+> db.nettuts.update({first: 'james', last: 'caan'}, {$set: {hair_colour: 'chestnut'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+> db.nettuts.find({first: 'james', last: 'caan'}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcb"),
+        "first" : "james",
+        "last" : "caan",
+        "dob" : "26/03/1940",
+        "gender" : "m",
+        "hair_colour" : "chestnut",
+        "occupation" : "actor",
+        "nationality" : "american"
+}
+> db.nettuts.remove({first: 'james', last: 'caan'})
+WriteResult({ "nRemoved" : 1 })
+> db.nettuts.find({first: 'james', last: 'caan'})
+> db.nettuts.find({"age": {"$lt": 40}}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dca"),
+        "first" : "matthew",
+        "last" : "setter",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "australian",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dce"),
+        "first" : "jamie lee",
+        "last" : "curtis",
+        "dob" : "22/11/1958",
+        "gender" : "f",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english",
+        "age" : 33
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dd0"),
+        "first" : "judi",
+        "last" : "dench",
+        "dob" : "09/12/1934",
+        "gender" : "f",
+        "hair_colour" : "white",
+        "occupation" : "actress",
+        "nationality" : "english",
+        "age" : 33
+}
+> db.nettuts.find({"age": {"$lte": 43}}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dca"),
+        "first" : "matthew",
+        "last" : "setter",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "australian",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcd"),
+        "first" : "tony",
+        "last" : "curtis",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "american",
+        "age" : 43
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dce"),
+        "first" : "jamie lee",
+        "last" : "curtis",
+        "dob" : "22/11/1958",
+        "gender" : "f",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english",
+        "age" : 33
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dd0"),
+        "first" : "judi",
+        "last" : "dench",
+        "dob" : "09/12/1934",
+        "gender" : "f",
+        "hair_colour" : "white",
+        "occupation" : "actress",
+        "nationality" : "english",
+        "age" : 33
+}
+> db.nettuts.find({"age": {"$gt": 47}}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcc"),
+        "first" : "arnold",
+        "last" : "schwarzenegger",
+        "dob" : "03/06/1925",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american",
+        "age" : 65
+}
+> db.nettuts.find({"age": {"$gte": 45}}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcc"),
+        "first" : "arnold",
+        "last" : "schwarzenegger",
+        "dob" : "03/06/1925",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american",
+        "age" : 65
+}
+> db.nettuts.find({"occupation" : {"$in" : ["actor", "developer"]}}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dca"),
+        "first" : "matthew",
+        "last" : "setter",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "australian",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcc"),
+        "first" : "arnold",
+        "last" : "schwarzenegger",
+        "dob" : "03/06/1925",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american",
+        "age" : 65
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcd"),
+        "first" : "tony",
+        "last" : "curtis",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "american",
+        "age" : 43
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dce"),
+        "first" : "jamie lee",
+        "last" : "curtis",
+        "dob" : "22/11/1958",
+        "gender" : "f",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "american",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcf"),
+        "first" : "michael",
+        "last" : "caine",
+        "dob" : "14/03/1933",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "actor",
+        "nationality" : "english",
+        "age" : 33
+}
+> db.nettuts.find({$or : [{"gender" : "m", "occupation" : "developer"}], "age" : {"$gt" : 40}}).pretty()
+{
+        "_id" : ObjectId("61f6c77d00bf3b474db38dcd"),
+        "first" : "tony",
+        "last" : "curtis",
+        "dob" : "21/04/1978",
+        "gender" : "m",
+        "hair_colour" : "brown",
+        "occupation" : "developer",
+        "nationality" : "american",
+        "age" : 43
+}
