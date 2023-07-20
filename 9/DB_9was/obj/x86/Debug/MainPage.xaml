@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="DB_9.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DB_9"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid x:ConnectionId='2' x:Name="g">
+        <StackPanel>
+            <TextBlock x:ConnectionId='3' x:Name="v" Text="Выбор фильма:" TextWrapping="Wrap" Width="235" HorizontalAlignment="Left" Margin="10,10,0,0" FontSize="22"/>
+            <ComboBox x:ConnectionId='4' x:Name="filmsList" Width="170"                                               Margin="10,10,0,0" FontSize="22">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding}" FontSize="26" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <MediaElement x:ConnectionId='5' x:Name="media" Height="543"
+ AreTransportControlsEnabled="True" Margin="0,30,0,0"/>
+            <RatingControl x:ConnectionId='6' x:Name="rating" IsReadOnly="True" Height="30" Width="773" HorizontalAlignment="Left" Margin="50,30,0,0"                                   />
+            <RatingControl x:ConnectionId='7' x:Name="wasrating" Height="30" Width="773" HorizontalAlignment="Left" Margin="220,-1310,0,0"                                    IsReadOnly="True">
+                <RatingControl.Resources>
+                    <SolidColorBrush x:Key="RatingControlSelectedForeground" Color="Black" />
+                </RatingControl.Resources>
+            </RatingControl>
+        </StackPanel>
+    </Grid>
+</Page>
+
